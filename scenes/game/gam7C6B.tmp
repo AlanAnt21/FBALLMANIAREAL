@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://jpsiunm4w1tb"]
+
+[ext_resource type="Texture2D" uid="uid://vo168cuxcokq" path="res://Aseprite/Background Revised1.png" id="1_nsbqa"]
+[ext_resource type="PackedScene" uid="uid://p2k6edwn5k4d" path="res://scenes/messi/messi.tscn" id="2_5fppl"]
+[ext_resource type="PackedScene" uid="uid://c5lil5ga2nxia" path="res://scenes/football.tscn" id="3_4qpku"]
+[ext_resource type="PackedScene" uid="uid://dsp2w0jnto1a6" path="res://scenes/ronaldo/ronaldo.tscn" id="3_g7nle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1ibd"]
+size = Vector2(27, 743)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd6g1"]
+size = Vector2(1232, 20)
+
+[node name="Game" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 323)
+scale = Vector2(7.72667, 5.38333)
+texture = ExtResource("1_nsbqa")
+
+[node name="Messi" parent="." instance=ExtResource("2_5fppl")]
+position = Vector2(307, 438)
+scale = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(-17, 173)
+shape = SubResource("RectangleShape2D_m1ibd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(1159.5, 177.5)
+shape = SubResource("RectangleShape2D_m1ibd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(591, 515)
+shape = SubResource("RectangleShape2D_sd6g1")
+
+[node name="Ronaldo" parent="." instance=ExtResource("3_g7nle")]
+position = Vector2(779, 456)
+
+[node name="Football" parent="." instance=ExtResource("3_4qpku")]
+position = Vector2(551, 390)
