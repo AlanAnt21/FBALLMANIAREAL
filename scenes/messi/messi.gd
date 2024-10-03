@@ -23,8 +23,9 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force+ (velocity/10))
-			c.get_collider().apply_central_impulse(Vector2(0, -50))
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force + (velocity/10))
+			if velocity.y >= 0:
+				c.get_collider().apply_central_impulse(Vector2(0, -50))
 	# Add the gravity.
 	keep_in_screen_bounds()
 	if not is_on_floor():
