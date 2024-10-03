@@ -4,6 +4,8 @@ extends Node2D
 @onready var particle_ronaldo = $Particle_Ronaldo
 @onready var particle_messi = $Particle_Messi
 
+var timer = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,13 +20,17 @@ func _process(_delta):
 	if Input.is_action_just_pressed("SPACE"):
 		GameManager.load_game_scene()
 		GameManager.score_last = ""
+		
+func _physics_process(_delta):
+	timer += 1
 
 
 func _on_ronaldo_goal_area_entered(_area):
 	print("MEEESSSSIIII")
-	GameManager.load_game_scene()
 	GameManager.score_messi += 1
 	GameManager.score_last = "messi"
+	GameManager.load_game_scene()
+	GameManager.time = timer
 	
 
 
@@ -33,6 +39,7 @@ func _on_messi_goal_area_entered(_area):
 	GameManager.load_game_scene()
 	GameManager.score_ronaldo += 1
 	GameManager.score_last = "ronaldo"
+	GameManager.time = timer
 	
 func update_text():
 	label.text = "Score: " + str(GameManager.score_messi) + " : " + str(GameManager.score_ronaldo)

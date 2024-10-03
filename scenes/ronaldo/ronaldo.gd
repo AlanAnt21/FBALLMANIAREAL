@@ -50,3 +50,4 @@ func _physics_process(delta):
 	else:
 		animated_sprite_2d.play("idle")
 	move_and_slide()
+	GameManager.ronaldo_ghost.append(position)

@@ -52,6 +52,8 @@ func _physics_process(delta):
 	else:
 		animated_sprite_2d.play("idle")
 	move_and_slide()
+	
+	GameManager.messi_ghost.append(position)
 
 
 func _process(delta):
@@ -61,7 +63,7 @@ func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		if last_keycode == event.keycode and doubletap_time >= 0:
 			if velocity.x < 0:
-				velocity.x -= 1000
+				velocity.x -= 10000
 				print("left")
 			if velocity.x > 0:
 				velocity.x += 1000

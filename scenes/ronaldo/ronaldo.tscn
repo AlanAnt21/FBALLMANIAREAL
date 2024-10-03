@@ -108,11 +108,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gnw0"]
-radius = 28.0
-height = 91.0
+radius = 9.0
+height = 22.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv57o"]
-size = Vector2(54, 40)
+size = Vector2(18, 13)
 
 [node name="Ronaldo" type="CharacterBody2D"]
 collision_layer = 2
@@ -120,16 +120,14 @@ collision_mask = 2
 script = ExtResource("1_cb7gq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(9, -14)
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8ppd7")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -4)
+position = Vector2(-3, 3)
 shape = SubResource("CapsuleShape2D_8gnw0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 21)
+position = Vector2(-3, 7.5)
 shape = SubResource("RectangleShape2D_dv57o")

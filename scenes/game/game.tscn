@@ -80,10 +80,11 @@ position = Vector2(6, -273)
 shape = SubResource("SegmentShape2D_g1aew")
 
 [node name="Ronaldo" parent="." instance=ExtResource("3_g7nle")]
-position = Vector2(779, 456)
+position = Vector2(779, 438)
+scale = Vector2(4, 4)
 
 [node name="Football" parent="." instance=ExtResource("3_4qpku")]
-position = Vector2(551, 390)
+position = Vector2(550, 390)
 
 [node name="RonaldoGoal" type="Area2D" parent="."]
 
