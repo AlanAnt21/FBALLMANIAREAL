@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("SPACE"):
-		GameManager.load_replay_scene()
+		GameManager.load_game_scene()
 		GameManager.score_last = ""
 		
 func _physics_process(_delta):
