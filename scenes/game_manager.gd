@@ -20,3 +20,4 @@ func load_game_scene():
 	messi_ghost = []
 	football_ghost = []
 	get_tree().change_scene_to_packed(game_scene)
+	
