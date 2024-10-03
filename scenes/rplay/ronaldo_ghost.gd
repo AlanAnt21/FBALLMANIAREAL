@@ -1,7 +1,17 @@
 extends Node2D
 var index = 0
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
+func _ready():
+	animated_sprite_2d.speed_scale = 0.5
 
 func _physics_process(delta):
-	position = GameManager.ronaldo_ghost[index]
+	if index < GameManager.time - 0.5:
+		var i = int(index)
+		position = GameManager.ronaldo_ghost[i][0]
+		animated_sprite_2d.animation = GameManager.ronaldo_ghost[i][1]
+		animated_sprite_2d.flip_h = GameManager.ronaldo_ghost[i][2]
+	else:
+		GameManager.load_game_scene()
 		
-	index += 1
+	index += 0.5

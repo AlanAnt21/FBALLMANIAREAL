@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("SPACE"):
-		GameManager.load_game_scene()
+		GameManager.load_replay_scene()
 		GameManager.score_last = ""
 		
 func _physics_process(_delta):
@@ -29,17 +29,15 @@ func _on_ronaldo_goal_area_entered(_area):
 	print("MEEESSSSIIII")
 	GameManager.score_messi += 1
 	GameManager.score_last = "messi"
-	GameManager.load_game_scene()
-	GameManager.time = timer
+	GameManager.load_replay_scene()
 	
 
 
 func _on_messi_goal_area_entered(_area):
 	print("SUUIIIIII")
-	GameManager.load_game_scene()
+	GameManager.load_replay_scene()
 	GameManager.score_ronaldo += 1
 	GameManager.score_last = "ronaldo"
-	GameManager.time = timer
 	
 func update_text():
 	label.text = "Score: " + str(GameManager.score_messi) + " : " + str(GameManager.score_ronaldo)

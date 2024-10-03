@@ -50,4 +50,6 @@ func _physics_process(delta):
 	else:
 		animated_sprite_2d.play("idle")
 	move_and_slide()
-	GameManager.ronaldo_ghost.append(position)
+	GameManager.ronaldo_ghost.append([position, animated_sprite_2d.animation, animated_sprite_2d.flip_h])
+	if GameManager.ronaldo_ghost.size() > GameManager.time:
+		GameManager.ronaldo_ghost.remove_at(0)

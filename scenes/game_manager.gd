@@ -7,10 +7,16 @@ var score_ronaldo : int = 0
 
 var score_last = ""
 
-var time = 0
+var time = 100
 var ronaldo_ghost = []
 var messi_ghost = []
 var football_ghost = []
 
-func load_game_scene():
+func load_replay_scene():
 	get_tree().change_scene_to_packed(replay_scene)
+	
+func load_game_scene():
+	ronaldo_ghost = []
+	messi_ghost = []
+	football_ghost = []
+	get_tree().change_scene_to_packed(game_scene)

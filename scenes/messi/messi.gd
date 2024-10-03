@@ -53,7 +53,9 @@ func _physics_process(delta):
 		animated_sprite_2d.play("idle")
 	move_and_slide()
 	
-	GameManager.messi_ghost.append(position)
+	GameManager.messi_ghost.append([position, animated_sprite_2d.animation, animated_sprite_2d.flip_h])
+	if GameManager.messi_ghost.size() > GameManager.time:
+		GameManager.messi_ghost.remove_at(0)
 
 
 func _process(delta):
