@@ -11,8 +11,10 @@ var timer = 0
 func _ready():
 	update_text()
 	if GameManager.score_last == "messi":
+		particle_messi.amount = GameManager.ball_vel
 		particle_messi.emitting = true
 	elif GameManager.score_last == "ronaldo":
+		particle_ronaldo.amount = GameManager.ball_vel
 		particle_ronaldo.emitting = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,6 +40,7 @@ func _on_messi_goal_area_entered(_area):
 	GameManager.load_replay_scene()
 	GameManager.score_ronaldo += 1
 	GameManager.score_last = "ronaldo"
+	GameManager.ball_vel = football
 	
 func update_text():
-	label.text = "Score: " + str(GameManager.score_messi) + " : " + str(GameManager.score_ronaldo)
+	label.text = str(GameManager.score_messi) + " : " + str(GameManager.score_ronaldo)

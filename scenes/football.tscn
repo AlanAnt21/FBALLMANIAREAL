@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/football.gd" id="1_f6meu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jowg0"]
-friction = 0.25
+friction = 0.3
 bounce = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlr3u"]
