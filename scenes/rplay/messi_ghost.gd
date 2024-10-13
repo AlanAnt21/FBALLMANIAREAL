@@ -6,7 +6,7 @@ func _ready():
 	animated_sprite_2d.speed_scale = 0.5
 
 func _physics_process(delta):
-	if index < GameManager.time:
+	if index < GameManager.messi_ghost.size():
 		var i = int(index)
 		position = GameManager.messi_ghost[i][0]
 		animated_sprite_2d.animation = GameManager.messi_ghost[i][1]
