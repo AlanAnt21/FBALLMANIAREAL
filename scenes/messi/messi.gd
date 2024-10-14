@@ -12,6 +12,7 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	position.x = 0
 
 func keep_in_screen_bounds():
 	position.x = clamp(position.x, 0, screen_size.x)
