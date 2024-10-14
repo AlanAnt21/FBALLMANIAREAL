@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var push_force = 80.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
-const SPEED = 500.0
+const SPEED = 500
 const JUMP_VELOCITY = -500.0
 const D_VELOCITY = 950.0
 
@@ -76,12 +76,7 @@ func movement():
 		
 	if adjusting:
 		distance_x = (ball.position.x + 550) - position.x - 150
-		if distance_x > 20 and direction <= 0:
-			direction = sign(distance_x)
-		else:
-			direction = 0
-		
-			
+		direction = sign(distance_x)
 		
 	
 	velocity.x = direction * SPEED
