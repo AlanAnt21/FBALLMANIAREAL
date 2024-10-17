@@ -115,6 +115,7 @@ height = 22.0
 size = Vector2(18, 13)
 
 [node name="Messi" type="CharacterBody2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_etb87")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

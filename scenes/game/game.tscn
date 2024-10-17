@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://jpsiunm4w1tb"]
+[gd_scene load_steps=15 format=3 uid="uid://jpsiunm4w1tb"]
 
 [ext_resource type="Script" path="res://scenes/game/main.gd" id="1_0vj82"]
 [ext_resource type="Texture2D" uid="uid://vo168cuxcokq" path="res://Aseprite/Background Revised1.png" id="1_nsbqa"]
-[ext_resource type="PackedScene" uid="uid://p2k6edwn5k4d" path="res://scenes/messi/messi.tscn" id="2_5fppl"]
 [ext_resource type="PackedScene" uid="uid://c5lil5ga2nxia" path="res://scenes/football.tscn" id="3_4qpku"]
 [ext_resource type="PackedScene" uid="uid://dsp2w0jnto1a6" path="res://scenes/ronaldo/ronaldo.tscn" id="3_g7nle"]
-[ext_resource type="PackedScene" uid="uid://bfwcweuldy6ws" path="res://scenes/messi_ai/messi_ai.tscn" id="6_w5a1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1ibd"]
 size = Vector2(141.5, 1187)
@@ -47,10 +45,6 @@ script = ExtResource("1_0vj82")
 position = Vector2(575, 323)
 scale = Vector2(7.72667, 5.38333)
 texture = ExtResource("1_nsbqa")
-
-[node name="Messi" parent="." instance=ExtResource("2_5fppl")]
-position = Vector2(307, 438)
-scale = Vector2(4, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 7
@@ -151,10 +145,6 @@ scale_amount_min = 3.7
 scale_amount_max = 15.7
 color_ramp = SubResource("Gradient_hoos8")
 color_initial_ramp = SubResource("Gradient_jq4fs")
-
-[node name="Messi2" parent="." instance=ExtResource("6_w5a1e")]
-position = Vector2(307, 380)
-scale = Vector2(4, 4)
 
 [connection signal="area_entered" from="RonaldoGoal" to="." method="_on_ronaldo_goal_area_entered"]
 [connection signal="area_entered" from="MessiGoal" to="." method="_on_messi_goal_area_entered"]

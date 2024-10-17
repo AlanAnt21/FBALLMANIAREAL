@@ -5,10 +5,13 @@ extends Node2D
 @onready var particle_messi = $Particle_Messi
 
 var timer = 0
-
+var mode : String
+var messi_scenes = [preload("res://scenes/messi/messi.tscn"), preload("res://scenes/messi_ai/messi_ai.tscn")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mode = GameManager.mode
+	instantiate_mode(mode)
 	update_text()
 	if GameManager.score_last == "messi":
 		particle_messi.amount = GameManager.ball_vel
@@ -44,3 +47,14 @@ func _on_messi_goal_area_entered(_area):
 	
 func update_text():
 	label.text = str(GameManager.score_messi) + " : " + str(GameManager.score_ronaldo)
+	
+func instantiate_mode(game_mode):
+	var new_player
+	if game_mode == "single":
+		new_player = messi_scenes[1].instantiate()
+		new_player.position = Vector2(307, 380)
+	elif game_mode == "duo":
+		new_player = messi_scenes[0].instantiate()
+		new_player.position = Vector2(307, 438)
+		
+	add_child(new_player)

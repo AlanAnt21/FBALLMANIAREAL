@@ -12,7 +12,6 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	position.x = 0
 
 func keep_in_screen_bounds():
 	position.x = clamp(position.x, 0, screen_size.x)
@@ -53,6 +52,6 @@ func _physics_process(delta):
 		animated_sprite_2d.play("idle")
 	move_and_slide()
 	
-	#GameManager.messi_ghost.append([position, animated_sprite_2d.animation, animated_sprite_2d.flip_h])
-	#if GameManager.messi_ghost.size() > GameManager.time:
-		#GameManager.messi_ghost.remove_at(0)
+	GameManager.messi_ghost.append([position, animated_sprite_2d.animation, animated_sprite_2d.flip_h])
+	if GameManager.messi_ghost.size() > GameManager.time:
+		GameManager.messi_ghost.remove_at(0)

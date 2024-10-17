@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://my3kvn008nty"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_0inib"]
+[ext_resource type="Texture2D" uid="uid://vo168cuxcokq" path="res://Aseprite/Background Revised1.png" id="2_uy278"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0inib")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(7.72667, 5.38333)
+texture = ExtResource("2_uy278")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -227.0
+offset_top = 192.0
+offset_right = 232.0
+offset_bottom = 280.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.169425, 0.512967, 0.580594, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 45
+theme_override_font_sizes/font_size = 64
+text = "Football Mania"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 332.0
+offset_right = 497.0
+offset_bottom = 394.0
+theme_override_font_sizes/font_size = 30
+text = "1 Player"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 651.0
+offset_top = 336.0
+offset_right = 802.0
+offset_bottom = 398.0
+theme_override_font_sizes/font_size = 30
+text = "2 Player"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
