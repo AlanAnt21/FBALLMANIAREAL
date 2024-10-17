@@ -1,34 +1,44 @@
-[gd_scene load_steps=13 format=3 uid="uid://jpsiunm4w1tb"]
+[gd_scene load_steps=17 format=3 uid="uid://jpsiunm4w1tb"]
 
 [ext_resource type="Script" path="res://scenes/game/main.gd" id="1_0vj82"]
 [ext_resource type="Texture2D" uid="uid://vo168cuxcokq" path="res://Aseprite/Background Revised1.png" id="1_nsbqa"]
 [ext_resource type="PackedScene" uid="uid://p2k6edwn5k4d" path="res://scenes/messi/messi.tscn" id="2_5fppl"]
 [ext_resource type="PackedScene" uid="uid://c5lil5ga2nxia" path="res://scenes/football.tscn" id="3_4qpku"]
 [ext_resource type="PackedScene" uid="uid://dsp2w0jnto1a6" path="res://scenes/ronaldo/ronaldo.tscn" id="3_g7nle"]
+[ext_resource type="PackedScene" uid="uid://bfwcweuldy6ws" path="res://scenes/messi_ai/messi_ai.tscn" id="6_w5a1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1ibd"]
-size = Vector2(23, 1187)
+size = Vector2(141.5, 1187)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sd6g1"]
 size = Vector2(1232, 518)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_hif7j"]
-a = Vector2(167, 6)
-b = Vector2(1, 23)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umf5y"]
+size = Vector2(148, 11)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7452k"]
-a = Vector2(116, 97)
-b = Vector2(-52, 77)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o16eo"]
+size = Vector2(148, 13)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_g1aew"]
-a = Vector2(1153, -1)
-b = Vector2(-6, -1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsg4v"]
+size = Vector2(1190, 236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kulje"]
 size = Vector2(118, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_588lv"]
 size = Vector2(116, 173)
+
+[sub_resource type="Gradient" id="Gradient_2imkg"]
+offsets = PackedFloat32Array(0.729508, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_jq4fs"]
+offsets = PackedFloat32Array(0.0163934, 0.150273, 0.387978, 0.571038, 0.76776, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.439216, 0, 1, 1, 1, 0.278431, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_hoos8"]
+offsets = PackedFloat32Array(0.699454, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0vj82")
@@ -43,42 +53,40 @@ position = Vector2(307, 438)
 scale = Vector2(4, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(-17, -63)
+position = Vector2(-76.25, -63)
 shape = SubResource("RectangleShape2D_m1ibd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(1161.5, -44.5)
+position = Vector2(1227, -41)
 shape = SubResource("RectangleShape2D_m1ibd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
 position = Vector2(591, 764)
 shape = SubResource("RectangleShape2D_sd6g1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(985, 307)
-shape = SubResource("SegmentShape2D_hif7j")
+position = Vector2(1058, 322.5)
+rotation = -0.0541052
+shape = SubResource("RectangleShape2D_umf5y")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(50, 233)
-shape = SubResource("SegmentShape2D_7452k")
+position = Vector2(91, 323.5)
+rotation = 0.0558505
+shape = SubResource("RectangleShape2D_o16eo")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(6, -273)
-shape = SubResource("SegmentShape2D_g1aew")
+position = Vector2(578, -381)
+shape = SubResource("RectangleShape2D_jsg4v")
 
 [node name="Ronaldo" parent="." instance=ExtResource("3_g7nle")]
-position = Vector2(779, 456)
+position = Vector2(779, 438)
+scale = Vector2(4, 4)
 
 [node name="Football" parent="." instance=ExtResource("3_4qpku")]
-position = Vector2(551, 390)
+position = Vector2(550, 390)
 
 [node name="RonaldoGoal" type="Area2D" parent="."]
 
@@ -93,12 +101,60 @@ position = Vector2(92, 415.5)
 shape = SubResource("RectangleShape2D_588lv")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 468.0
-offset_top = 25.0
-offset_right = 676.0
-offset_bottom = 82.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 472.0
+offset_top = 15.0
+offset_right = 680.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 30
 theme_override_font_sizes/font_size = 36
-text = "Score: x1:x2"
+text = "x1:x2"
+horizontal_alignment = 1
+
+[node name="Particle_Messi" type="CPUParticles2D" parent="."]
+position = Vector2(1011, 421)
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 0.89
+direction = Vector2(-1, 0)
+spread = 66.55
+gravity = Vector2(0, 1000)
+initial_velocity_min = 381.82
+initial_velocity_max = 1300.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 3.7
+scale_amount_max = 15.7
+color_ramp = SubResource("Gradient_2imkg")
+color_initial_ramp = SubResource("Gradient_jq4fs")
+
+[node name="Particle_Ronaldo" type="CPUParticles2D" parent="."]
+position = Vector2(142, 413)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.89
+spread = 66.55
+gravity = Vector2(0, 1000)
+initial_velocity_min = 381.82
+initial_velocity_max = 1300.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 3.7
+scale_amount_max = 15.7
+color_ramp = SubResource("Gradient_hoos8")
+color_initial_ramp = SubResource("Gradient_jq4fs")
+
+[node name="Messi2" parent="." instance=ExtResource("6_w5a1e")]
+position = Vector2(307, 380)
+scale = Vector2(4, 4)
 
 [connection signal="area_entered" from="RonaldoGoal" to="." method="_on_ronaldo_goal_area_entered"]
 [connection signal="area_entered" from="MessiGoal" to="." method="_on_messi_goal_area_entered"]

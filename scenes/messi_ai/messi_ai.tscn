@@ -1,56 +1,56 @@
-[gd_scene load_steps=20 format=3 uid="uid://p2k6edwn5k4d"]
+[gd_scene load_steps=20 format=3 uid="uid://bfwcweuldy6ws"]
 
-[ext_resource type="Texture2D" uid="uid://cp3eupflxh551" path="res://Aseprite/Messi - Idle-Sheet.png" id="1_6jeme"]
-[ext_resource type="Script" path="res://scenes/messi/messi.gd" id="1_etb87"]
-[ext_resource type="Texture2D" uid="uid://d147mkf1tp66n" path="res://Aseprite/Messi - Run-Sheet.png" id="3_8ofsp"]
-[ext_resource type="Texture2D" uid="uid://dxei6lft2pesi" path="res://Aseprite/Messi - Jump-Sheet.png" id="3_36shd"]
+[ext_resource type="Script" path="res://scenes/messi_ai/messi_ai.gd" id="1_t6yiy"]
+[ext_resource type="Texture2D" uid="uid://cp3eupflxh551" path="res://Aseprite/Messi - Idle-Sheet.png" id="2_b8e6x"]
+[ext_resource type="Texture2D" uid="uid://dxei6lft2pesi" path="res://Aseprite/Messi - Jump-Sheet.png" id="3_4npgr"]
+[ext_resource type="Texture2D" uid="uid://d147mkf1tp66n" path="res://Aseprite/Messi - Run-Sheet.png" id="4_csbj7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rilkj"]
-atlas = ExtResource("1_6jeme")
+atlas = ExtResource("2_b8e6x")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_poliu"]
-atlas = ExtResource("1_6jeme")
+atlas = ExtResource("2_b8e6x")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpiat"]
-atlas = ExtResource("1_6jeme")
+atlas = ExtResource("2_b8e6x")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3flrh"]
-atlas = ExtResource("1_6jeme")
+atlas = ExtResource("2_b8e6x")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6c6r"]
-atlas = ExtResource("3_36shd")
+atlas = ExtResource("3_4npgr")
 region = Rect2(0, 41, 32, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pvwg"]
-atlas = ExtResource("3_36shd")
+atlas = ExtResource("3_4npgr")
 region = Rect2(32, 41, 32, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afb0g"]
-atlas = ExtResource("3_36shd")
+atlas = ExtResource("3_4npgr")
 region = Rect2(64, 41, 32, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjjuu"]
-atlas = ExtResource("3_36shd")
+atlas = ExtResource("3_4npgr")
 region = Rect2(96, 41, 32, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvaj4"]
-atlas = ExtResource("3_8ofsp")
+atlas = ExtResource("4_csbj7")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jtl2"]
-atlas = ExtResource("3_8ofsp")
+atlas = ExtResource("4_csbj7")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4s0ht"]
-atlas = ExtResource("3_8ofsp")
+atlas = ExtResource("4_csbj7")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbuyb"]
-atlas = ExtResource("3_8ofsp")
+atlas = ExtResource("4_csbj7")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jiski"]
@@ -115,7 +115,9 @@ height = 22.0
 size = Vector2(18, 13)
 
 [node name="Messi" type="CharacterBody2D"]
-script = ExtResource("1_etb87")
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_t6yiy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jiski")

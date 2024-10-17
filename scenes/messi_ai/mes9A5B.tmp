@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://p2k6edwn5k4d"]
+[gd_scene load_steps=14 format=3 uid="uid://p2k6edwn5k4d"]
 
 [ext_resource type="Texture2D" uid="uid://cp3eupflxh551" path="res://Aseprite/Messi - Idle-Sheet.png" id="1_6jeme"]
 [ext_resource type="Script" path="res://scenes/messi/messi.gd" id="1_etb87"]
 [ext_resource type="Texture2D" uid="uid://d147mkf1tp66n" path="res://Aseprite/Messi - Run-Sheet.png" id="3_8ofsp"]
-[ext_resource type="Texture2D" uid="uid://dxei6lft2pesi" path="res://Aseprite/Messi - Jump-Sheet.png" id="3_36shd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rilkj"]
 atlas = ExtResource("1_6jeme")
@@ -20,22 +19,6 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3flrh"]
 atlas = ExtResource("1_6jeme")
 region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o6c6r"]
-atlas = ExtResource("3_36shd")
-region = Rect2(0, 41, 32, 41)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pvwg"]
-atlas = ExtResource("3_36shd")
-region = Rect2(32, 41, 32, 41)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_afb0g"]
-atlas = ExtResource("3_36shd")
-region = Rect2(64, 41, 32, 41)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjjuu"]
-atlas = ExtResource("3_36shd")
-region = Rect2(96, 41, 32, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvaj4"]
 atlas = ExtResource("3_8ofsp")
@@ -74,23 +57,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o6c6r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pvwg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_afb0g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xjjuu")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_wvaj4")
 }, {
 "duration": 1.0,
@@ -107,27 +73,17 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uitdq"]
-radius = 9.0
-height = 22.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4jhu"]
-size = Vector2(18, 13)
+[sub_resource type="CircleShape2D" id="CircleShape2D_00sju"]
+radius = 7.0
 
 [node name="Messi" type="CharacterBody2D"]
 script = ExtResource("1_etb87")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jiski")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.676796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 3)
-shape = SubResource("CapsuleShape2D_uitdq")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 7.5)
-shape = SubResource("RectangleShape2D_r4jhu")
+position = Vector2(-3, 7)
+shape = SubResource("CircleShape2D_00sju")
