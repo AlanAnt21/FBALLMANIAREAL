@@ -7,6 +7,8 @@ extends Node2D
 var timer = 0
 var mode : String
 var messi_scenes = [preload("res://scenes/messi/messi.tscn"), preload("res://scenes/messi_ai/messi_ai.tscn")]
+var equal = []
+var critical_kick_chance = 0.01
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +24,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if randi_range(0, 1000) == 5:
+		instantiate_mode("three")
 	if Input.is_action_just_pressed("SPACE"):
 		GameManager.load_game_scene()
 		GameManager.score_last = ""
@@ -56,5 +60,11 @@ func instantiate_mode(game_mode):
 	elif game_mode == "duo":
 		new_player = messi_scenes[0].instantiate()
 		new_player.position = Vector2(307, 438)
+	elif game_mode == "three":
+		var temp = []
+		var random_chance = int(1/(critical_kick_chance ** 4))
+		for i in range(0, random_chance):
+			temp.append(random_chance)
+		equal.append_array(temp)
 		
 	add_child(new_player)

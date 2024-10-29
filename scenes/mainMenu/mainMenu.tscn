@@ -44,6 +44,7 @@ theme_override_font_sizes/font_size = 30
 text = "1 Player"
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 651.0
 offset_top = 336.0
 offset_right = 802.0
